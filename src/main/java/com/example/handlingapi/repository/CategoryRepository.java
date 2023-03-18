@@ -35,4 +35,6 @@ public interface CategoryRepository {
             "SET category_name = #{categoryRequest.categoryName} " +
             "WHERE category_id = #{categoryId} ")
     Integer updateCategoryById(@Param("categoryId") Integer categoryId,@Param("categoryRequest") CategoryRequest categoryRequest);
+
+
 }

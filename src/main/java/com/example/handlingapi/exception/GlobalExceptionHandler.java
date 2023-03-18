@@ -36,4 +36,13 @@ public class GlobalExceptionHandler {
         problemDetail.setProperty("time", LocalDateTime.now());
         return problemDetail;
     }
+
+    @ExceptionHandler(BookNotFoundHandler.class)
+    ProblemDetail handleAuthorNotFound(BookNotFoundHandler bookNotFoundHandler){
+        ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND, bookNotFoundHandler.getMessage());
+        problemDetail.setType(URI.create("localhost:8080/error/not-found"));
+        problemDetail.setTitle("Book Not Found");
+        problemDetail.setProperty("time", LocalDateTime.now());
+        return problemDetail;
+    }
 }
