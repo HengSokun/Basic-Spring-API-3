@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class CategoryResponse <T>{
+public class AuthorResponse<T> {
     private String timestamp;
     private Integer status;
     private String message;

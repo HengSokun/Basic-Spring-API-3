@@ -27,4 +27,13 @@ public class GlobalExceptionHandler {
         problemDetail.setProperty("time", LocalDateTime.now());
         return problemDetail;
     }
+
+    @ExceptionHandler(AuthorNotFoundHandler.class)
+    ProblemDetail handleAuthorNotFound(AuthorNotFoundHandler authorNotFoundHandler){
+        ProblemDetail problemDetail = ProblemDetail.forStatusAndDetail(HttpStatus.NOT_FOUND, authorNotFoundHandler.getMessage());
+        problemDetail.setType(URI.create("localhost:8080/error/not-found"));
+        problemDetail.setTitle("Author Not Found");
+        problemDetail.setProperty("time", LocalDateTime.now());
+        return problemDetail;
+    }
 }

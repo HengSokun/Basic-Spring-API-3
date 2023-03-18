@@ -6,10 +6,11 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Builder
-public class Category {
-    private Integer categoryId;
-    private String categoryName;
+public class Author {
+    private Integer authorId;
+    private String authorName;
+    private String gender;
 }

@@ -19,7 +19,9 @@ public interface CategoryRepository {
     @Result(property = "categoryName", column = "category_name")
     Category getCategoryById(Integer categoryId);
 
-    @Select("INSERT INTO categories(category_name) VALUES(#{categoryRequest.categoryName})")
+//    add new category
+    @Select("INSERT INTO categories(category_name) VALUES(#{categoryRequest.categoryName}) " +
+            "RETURNING * ")
     @Result(property = "categoryId", column = "category_id")
     @Result(property = "categoryName", column = "category_name")
     Category addNewCategory(@Param("categoryRequest") CategoryRequest categoryRequest);

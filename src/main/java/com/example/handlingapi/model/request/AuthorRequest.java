@@ -1,4 +1,4 @@
-package com.example.handlingapi.model;
+package com.example.handlingapi.model.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Category {
-    private Integer categoryId;
-    private String categoryName;
+public class AuthorRequest {
+    private String authorName;
+    private String gender;
 }

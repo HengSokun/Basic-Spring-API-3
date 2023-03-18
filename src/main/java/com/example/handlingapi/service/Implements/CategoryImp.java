@@ -3,8 +3,8 @@ package com.example.handlingapi.service.Implements;
 import com.example.handlingapi.exception.BlankFieldHandler;
 import com.example.handlingapi.exception.UserNotFoundHandler;
 import com.example.handlingapi.model.Category;
-import com.example.handlingapi.model.dto.CategoryDTO;
-import com.example.handlingapi.model.mapper.CategoryMapper;
+//import com.example.handlingapi.model.dto.CategoryDTO;
+//import com.example.handlingapi.model.mapper.CategoryMapper;
 import com.example.handlingapi.model.request.CategoryRequest;
 import com.example.handlingapi.repository.CategoryRepository;
 import com.example.handlingapi.service.CategoryService;
@@ -16,11 +16,11 @@ import java.util.List;
 public class CategoryImp implements CategoryService {
 
     private final CategoryRepository categoryRepository;
-    private final CategoryMapper categoryMapper;
+//    private final CategoryMapper categoryMapper;
 
-    public CategoryImp(CategoryRepository categoryRepository, CategoryMapper categoryMapper) {
+    public CategoryImp(CategoryRepository categoryRepository) {
         this.categoryRepository = categoryRepository;
-        this.categoryMapper = categoryMapper;
+//        this.categoryMapper = categoryMapper;
     }
 
     @Override
@@ -31,15 +31,6 @@ public class CategoryImp implements CategoryService {
     @Override
     public Category getCategoryById(Integer categoryId) {
         Category category = categoryRepository.getCategoryById(categoryId);
-//        System.out.println("Get by id: "+category);
-
-//        CategoryDTO categoryDTO = new CategoryDTO();
-//
-//        if (category == null){
-//            throw new UserNotFoundHandler("Category "+ categoryId +" Not found");
-//        }
-//        return categoryMapper.categoryDTO(category);
-
         if(category == null){
 //            System.out.println("In category category: null");
             throw new UserNotFoundHandler("Category "+ categoryId +" Not found");
@@ -59,7 +50,7 @@ public class CategoryImp implements CategoryService {
 
     @Override
     public boolean deleteCategoryById(Integer categoryId) {
-        CategoryDTO categoryDTO = new CategoryDTO();
+//        CategoryDTO categoryDTO = new CategoryDTO();
         if (!categoryRepository.deleteCategoryById(categoryId)){
             throw new UserNotFoundHandler("Category "+ categoryId +" Not found");
         }
