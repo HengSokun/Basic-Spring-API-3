@@ -12,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
@@ -20,7 +21,8 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/v1/books")
 public class BookController {
-
+    String pattern = "dd-M-yyyy hh:mm:ss";
+    SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
     private final BookService bookService;
 
     public BookController(BookService bookService) {
